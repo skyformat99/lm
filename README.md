@@ -31,3 +31,7 @@ make
 Then start your browser on port 8100, navigate to `example.msp`:
 
 ![](screen1.png)
+
+### Contact
+
+https://mongoose-os.com/contact.html
