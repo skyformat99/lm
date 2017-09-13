@@ -1,0 +1,21 @@
+<html>
+
+<body>
+  <h1> {{ send('hello from MSP!'); }} </h1>
+
+  <p>
+    user agent: {{
+      let gh = ffi('void *mg_get_http_header(void *, char *)');
+      let sptr = ffi('void *mgsptr(void *)');
+      let slen = ffi('int mgslen(void *)');
+      let get_header = function(name) {
+        let s = gh(MSP.hm, name);
+        return fstr(sptr(s), slen(s));
+      };
+
+      send(get_header('User-Agent'));
+    }}
+  </p>
+</body>
+
+</html>
